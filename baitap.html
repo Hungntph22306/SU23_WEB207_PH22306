@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BaiVeNha</title>
+    <link rel="stylesheet" href="libs/bootstrap.min.css" />
+  </head>
+  <body ng-app="angular-app">
+    <p>Tên: Nguyễn Trung Hưng</p>
+    <p>MSV: PH22306</p>
+    <a class="btn btn-primary" href="formdangki.html" role="button">Thêm</a>
+
+    <div ng-controller="loopController">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Ảnh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="motNguoiTao in danhSachNT ">
+            <td scope="row">1</td>
+            <td>{{motNguoiTao.ten}}</td>
+            <td>{{motNguoiTao.mota}}</td>
+            <td>
+              <img
+                src="{{motNguoiTao.anh}}"
+                alt="{{motNguoiTao.ten}}"
+                ;
+                width="50"
+                height="50"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="./libs/angular.min.js"></script>
+    <script>
+      var app = angular.module("angular-app", []);
+      //loopController
+      app.controller("loopController", function ($scope) {
+        $scope.danhSachNT = [
+          {
+            IDBVersionChangeEvent: 1,
+            ten: "Nguyễn Trung Hưng",
+            mota: "Tướng tủ",
+            anh: "https://i.pinimg.com/736x/f0/a7/da/f0a7daa4efb73e0c0bbd209676755383.jpg",
+          },
+        ];
+      });
+    </script>
+  </body>
+</html>
